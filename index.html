@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite ao Mar</title>
+    <style>
+        /* Fundo de mar */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0077B6; /* Cor azul do mar */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to top, #00B4D8, #0077B6); /* Efeito de gradiente de mar */
+            color: white;
+        }
+
+        /* Container central com bordas arredondadas e fundo azul claro */
+        .container {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: #0096C7; /* Azul mais claro para contrastar com o fundo */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 0;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Botões */
+        .btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #48C9B0; /* Cor verde água, para combinar com o tema */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn-recusar {
+            background-color: #F76C6C; /* Vermelho coral para o botão de recusa */
+        }
+
+        /* Hover nos botões */
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Criar formato ondulado no topo */
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #00B4D8; /* Cor de onda no topo */
+            clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+        }
+
+        /* Mensagem de resultado */
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Forma ondulada representando o mar -->
+    <div class="wave"></div>
+
+    <!-- Container do convite -->
+    <div class="container">
+        <h1>Você aceita sair comigo?</h1>
+        <button class="btn" id="btn-aceitar" onclick="aceitarConvite()">Aceitar</button>
+        <button class="btn btn-recusar hidden" id="btn-recusar" onclick="recusarConvite()">Recusar</button>
+        <p id="resultado" class="hidden"></p>
+    </div>
+
+    <script>
+        // Função chamada ao clicar em "Aceitar"
+        function aceitarConvite() {
+            document.getElementById("resultado").classList.remove("hidden");
+            document.getElementById("resultado").innerText = "Convite aceito! Vamos sair para o mar!";
+            document.getElementById("btn-aceitar").classList.add("hidden");
+            document.getElementById("btn-recusar").classList.add("hidden");
+        }
+
+        // Função chamada ao clicar em "Recusar"
+        function recusarConvite() {
+            document.getElementById("resultado").classList.remove("hidden");
+            document.getElementById("resultado").innerText = "Você recusou o convite. Talvez em outra onda!";
+            document.getElementById("btn-aceitar").classList.add("hidden");
+            document.getElementById("btn-recusar").classList.add("hidden");
+        }
+    </script>
+
+</body>
+</html>
